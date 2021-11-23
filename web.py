@@ -65,7 +65,7 @@ def pickle_read(file_path):
 		return None
 	
 
-url1 = "http://127.0.0.1:8810/"
+#url1 = "http://127.0.0.1:8810/"
 games = {
 "tinyHeart":{"name":"TinyHeart","img":"th.png","cost":0.1},
 "linkGame":{"name":"连连看","img":"IMG20190118_173659.png","cost":0.0},
@@ -463,18 +463,19 @@ class AliPay(MyHandler):
 		model.out_trade_no = model.subject
 		model.seller_id = "gqfmha3170@sandbox.com"
 		#model.seller_id = "9youzl@mail.m818.com"
-		model.quit_url = url1
+		url0 = "http://" + self.request.host + "/"
+		model.quit_url = url0
 		#model.timeout_express = '10m'
 		#request = AlipayTradeAppPayRequest(biz_model=model)
-		#request.notify_url = url1 + 'AliPayOk'
+		#request.notify_url = url0 + 'AliPayOk'
 		#response = client.sdk_execute(request)
 		#logging.info("alipay.trade.app.pay response:" + response)
 		#self.write(response)
 		#pay_request = AlipayTradePagePayRequest(biz_model=model)
 		pay_request = AlipayTradeWapPayRequest(biz_model=model)
 		#pay_request = AlipayTradePayRequest(biz_model=model)
-		#pay_request.notify_url = url1 + 'AliPayOk'   # 支付后回调地址
-		pay_request.return_url = url1 + self.get_query_argument('product', '')
+		#pay_request.notify_url = url0 + 'AliPayOk'   # 支付后回调地址
+		pay_request.return_url = url0 + self.get_query_argument('product', '')
 		#response = client.sdk_execute(pay_request)
 		#self.write(response)
 		pay_url = client.page_execute(pay_request, http_method='GET')
