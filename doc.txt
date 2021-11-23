@@ -1,0 +1,8 @@
+pip3 install tornado==6.1 -i https://pypi.douban.com/simple/
+pip3 install alipay -i https://pypi.douban.com/simple/
+pip3 install alipay-sdk-python -i https://pypi.douban.com/simple/
+https://tornado-zh-cn.readthedocs.io/zh_CN/latest/
+
+买家账号cxuuvw8004@sandbox.com
+登录密码111111
+支付密码111111
