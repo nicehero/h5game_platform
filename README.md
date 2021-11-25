@@ -3,7 +3,7 @@
 #### 介绍
 h5小游戏平台
 一个可以发布小游戏的平台，玩家使用平台中可以通过支付宝购买h5小游戏
-
+![](title.jpg)
 #### 软件架构
 使用python3.8 tornado6.1 alipay-sdk-python开发
 
