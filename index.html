@@ -1,7 +1,11 @@
 <!DOCTYPE html><html><head><title>小游戏平台</title><meta charset=utf-8>
+<meta name="color-scheme" content="light">
 <link href=./static/index.css rel=stylesheet></head>
 <body>
-	<div id="head">%s</div>
+	<div id="head"
+	style="background-color: rgb(244, 244, 244); display: block; --darkreader-inline-bgcolor:#1e2122;">
+	<input type="text" class="s-top-center" id="searchBar" value="" oninput="search()">	%s
+	</div>
 	<div class="s-main">
 	<div class="t-ctn">
 	<div class="s-ctn">
@@ -10,7 +14,21 @@
 	</div>
 	</div>
 	<script>
-		
+		function search(){
+			let s = document.getElementById("searchBar").value.toLowerCase();
+			let gs = document.getElementsByName("game");
+			for (let i in gs){
+				try{
+					let g = gs[i].id.toLowerCase();
+					gs[i].style.display = "";
+					if (g.search(s) < 0){
+						gs[i].style.display = "none";
+					}
+				}
+				catch(err){
+				}
+			}
+		}
 	</script>
 </body>
 </html>

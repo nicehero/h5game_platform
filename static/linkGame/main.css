@@ -16,7 +16,7 @@ body {
   /*早期浏览器*/
           user-select: none; 
 
-  background: #000;
+  background: #fff;
   /*IE10*/
 
    -khtml-user-select: none;

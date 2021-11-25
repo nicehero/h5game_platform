@@ -246,7 +246,7 @@ class Session:
 		cookie_sid = self._get_cookie_sid()
 		if not cookie_sid:
 			cookie_sid = self._random_str()
-		self.handler.set_secure_cookie("__session", cookie_sid)
+		self.handler.set_secure_cookie("__session", cookie_sid,samesite="Lax")
 		SESSION.setdefault(cookie_sid, {"username" : ""}).__setitem__(key, value)
 	def __getitem__(self, key):
 		cookie_sid = self._get_cookie_sid()
@@ -270,7 +270,7 @@ class MyHandler(tornado.web.RequestHandler):
 gf = open("index.html",'rb')
 mainIndex = gf.read().decode()
 gf.close()
-gt = '''<div><a href="./%s"><div><img src="./static/%s"/></div><div><font size="3">%s</font></div></a>
+gt = '''<div id = "%s" name="game"><a href="./%s"><div><img src="./static/%s"/></div><div><font size="3">%s</font></div></a>
 <div><font size="5" color="#FF0000">¥%s</font></div></div>
 '''
 gt1 = '''<div class="s-top-left">欢迎光临!</div>
@@ -309,7 +309,7 @@ class MainHandler(MyHandler):
 						scost = "已购"
 				except:
 					pass
-			s = s + (gt % (i,games[i]["img"],games[i]["name"],scost))
+			s = s + (gt % (games[i]["name"],i,games[i]["img"],games[i]["name"],scost))
 		if user != None:
 			self.write(mainIndex % (gt2%user,s))
 		else:
